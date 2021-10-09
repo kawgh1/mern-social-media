@@ -1,0 +1,23 @@
+{
+    "name": "mern-social-media-socket-io",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kawgh1/mern-social-media-socket-io.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kawgh1/mern-social-media-socket-io/issues"
+    },
+    "homepage": "https://github.com/kawgh1/mern-social-media-socket-io#readme",
+    "dependencies": {
+        "nodemon": "^2.0.13",
+        "socket.io": "^4.2.0"
+    }
+}
