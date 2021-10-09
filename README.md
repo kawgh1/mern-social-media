@@ -3,7 +3,9 @@
 
     -   ## api
         -   #### Node Express server connected to MongoDB Cloud database
+        -   initial [repo](https://github.com/kawgh1/mern-social-media-rest-api)
     -   ## client
         -   #### React front end, responsive, styled
+        -   initial [repo](https://github.com/kawgh1/mern-social-media-react)
     -   ## socket
         -   #### Socket.io server to manage real-time client chat application
