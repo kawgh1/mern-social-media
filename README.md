@@ -2,8 +2,8 @@
 -   Each folder has its own README with more info for each
 
     -   ## api
-        -   ### Node Express server connected to MongoDB Cloud database
+        -   #### Node Express server connected to MongoDB Cloud database
     -   ## client
-        -   ### React front end, responsive, styled
+        -   #### React front end, responsive, styled
     -   ## socket
-        -   ### Socket.io server to manage real-time client chat application
+        -   #### Socket.io server to manage real-time client chat application
