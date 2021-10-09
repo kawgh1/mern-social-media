@@ -1,4 +1,4 @@
--   # MERN stack social media app using React, Node and Socket.io
+-   # MERN Stack Social Media App w/ Socket.io
 -   Each folder has its own README with more info for each
 
     -   ## api
