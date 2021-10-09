@@ -1,0 +1,72 @@
+.footer {
+    background: rgb(24, 119, 242);
+    background: linear-gradient(
+        170deg,
+        rgba(24, 119, 242, 1) 34%,
+        rgba(29, 35, 65, 1) 67%
+    );
+    z-index: 999;
+    order: 10;
+    bottom: 0;
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -9px 15px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px -9px 15px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.35) 0px -9px 15px;
+    border-top: 1px white solid;
+}
+
+.footer__options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 5px;
+    height: 50px;
+}
+
+.footerIcons {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: white;
+}
+
+.footerIconBadge {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.footerIconItem {
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.mui {
+    color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.mui:hover,
+.mui:active {
+    color: rgb(0, 255, 255) !important;
+    transform: scaleY(0.95);
+}
+
+.footerIconItem:hover > .mui,
+.footerIconItem:active > .mui {
+    color: rgb(0, 255, 255) !important;
+}

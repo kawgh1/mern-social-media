@@ -1,0 +1,303 @@
+.profile {
+	display: flex;
+	flex: 6;
+	overflow-y: auto;
+	height: calc(100vh - 60px);
+}
+
+.profileRight {
+	flex: 12;
+	color: rgb(31, 38, 80);
+}
+
+/* COMPONENT SCROLL BAR */
+/* Only Chrome */
+.profile::-webkit-scrollbar {
+	width: 10px;
+}
+.profile::-webkit-scrollbar-thumb {
+	background-color: #c4c4c4;
+}
+
+.profile::-webkit-scrollbar-track {
+	background-color: rgb(218, 218, 218);
+}
+.profile::-webkit-scrollbar-button {
+	background-color: #c4c4c4;
+}
+/* Only IE */
+.profile {
+	scrollbar-face-color: #c4c4c4;
+	scrollbar-shadow-color: rgb(218, 218, 218);
+	scrollbar-highlight-color: #c4c4c4;
+}
+/* Only FireFox */
+.profile {
+	scrollbar-color: #c4c4c4 rgb(218, 218, 218);
+	scrollbar-width: thin;
+	scrollbar-width: 10px;
+}
+/* View Scrollbar */
+
+.profileCover {
+	height: 300px;
+	position: relative;
+}
+
+.profileCoverImg {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-bottom: 1px solid white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.profileUserImg {
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	object-fit: cover;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 150px;
+	border: 1px solid rgb(190, 203, 247);
+	border: 2px solid white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+}
+
+.profileUserImg:hover {
+	filter: brightness(120%);
+}
+
+.profileRightTop {
+	display: flex;
+	flex-direction: column;
+}
+.followDiv {
+	align-self: center;
+	margin: 0px auto 10px;
+}
+.profileFollowButton {
+	background: rgb(24, 119, 242, 0.8);
+	border-radius: 30px;
+	padding: 5px 15px 4px;
+	font-size: 14px;
+	color: white;
+	font-weight: 300;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.profileFollowButton:hover,
+.profileFollowButton:active {
+	background: rgb(24, 119, 242, 1);
+	border-color: white;
+	color: rgb(255, 255, 255);
+	padding: 4px 14px 3px;
+	cursor: pointer;
+
+	margin: 1px auto;
+}
+
+.profileFollowButton:focus {
+	outline: none;
+}
+.profileInfoTop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	margin: 10px auto;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	background-color: rgba(255, 255, 255, 0.65);
+	width: 92%;
+	max-width: 750px;
+}
+
+.profileInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.profileInfoName {
+	font-size: 26px;
+	font-weight: 500;
+}
+
+.profileInfoDesc {
+	font-weight: 400;
+	font-size: 18px;
+	padding: 5px;
+}
+
+.profileRightBottom {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+
+	justify-content: space-evenly;
+	border-radius: 10px;
+	margin: 10px auto 50px;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	padding: 10px;
+	background-color: rgba(243, 243, 243, 0.85);
+	width: 90%;
+	max-width: 730px;
+}
+
+.profileTitle {
+	margin: 10px auto;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+}
+
+.profileFriendList {
+	padding: 20px;
+	margin: 0;
+	list-style: none;
+	border-radius: 10px;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+/* profile PROFILE */
+
+.profileInfoBottom {
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profileInfoItem {
+	margin-bottom: 10px;
+}
+
+.profileInfoKey {
+	font-weight: 500;
+	margin-right: 10px;
+	line-height: 20px;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgb(73, 45, 45);
+}
+
+.profileInfoValue {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.profileFollowings {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 5px;
+}
+
+.profileFriends {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+}
+.profileFollowing {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.profileFollowing:hover,
+.profileFollowing:focus {
+	filter: brightness(105%);
+	color: rgb(18, 90, 95);
+}
+
+.profileFollowingImg {
+	width: 50px;
+	height: 50px;
+
+	object-fit: cover;
+	border-radius: 5px;
+	margin: 7px auto;
+	border: 1px solid rgb(190, 203, 247);
+}
+
+.profileFollowingName {
+	/* ellipsis if long name */
+	font-size: 12px;
+	text-align: center;
+	letter-spacing: 0.5px;
+	font-weight: 700;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 80px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 700px) {
+	.profileUserImg {
+		height: 115px;
+		width: 115px;
+		top: 170px;
+	}
+
+	.profileRightBottom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		justify-content: center;
+
+		padding: 5px;
+		background-color: rgba(243, 243, 243, 0.85);
+		width: 90%;
+		max-width: 530px;
+	}
+
+	.profileTitle {
+		font-size: 18px;
+	}
+
+	.profileInfoName {
+		font-size: 20px;
+		font-weight: 400;
+	}
+
+	.profileInfoDesc {
+		font-weight: 300;
+		font-size: 14px;
+	}
+
+	.profileInfoKey {
+		font-size: 16px;
+	}
+	.profileInfoValue {
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	.profileFollowingName {
+		font-weight: 500;
+	}
+}

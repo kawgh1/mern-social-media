@@ -1,0 +1,52 @@
+.conversation {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.conversation:hover {
+    background: rgb(245, 245, 245, 0.4);
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.conversationImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid rgb(190, 203, 247);
+}
+
+.conversationName {
+    font-weight: 500;
+    color: white;
+    /* ellipsis if long name */
+    text-align: center;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* media queries */
+
+@media screen and (max-width: 700px) {
+    .conversation {
+        padding: 5px;
+    }
+
+    .conversationImg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .conversationName {
+        font-size: 12px;
+    }
+}

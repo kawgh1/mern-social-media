@@ -1,0 +1,64 @@
+.rightbarFriend {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.rightbarProfileImgContainer {
+	margin-right: 10px;
+	position: relative;
+}
+
+.rightbarProfileImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 1px solid rgb(190, 203, 247);
+}
+
+.rightbarOnline {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: limegreen;
+	position: absolute;
+	top: -2px;
+	right: 0;
+	border: 2px solid white;
+}
+
+.rightbarUsername {
+	font-weight: 500;
+	/* ellipsis if name too long */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+	.rightbarFriend {
+		margin-bottom: 10px;
+	}
+
+	.rightbarProfileImgContainer {
+		margin-right: 10px;
+	}
+
+	.rightbarProfileImg {
+		width: 32px;
+		height: 32px;
+	}
+
+	.rightbarOnline {
+		width: 9px;
+		height: 9px;
+
+		border: 1px solid white;
+	}
+
+	.rightbarUsername {
+		font-weight: 400;
+	}
+}
