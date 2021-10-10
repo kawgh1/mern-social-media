@@ -1,5 +1,17 @@
 const express = require("express");
 const app = express();
+// cors to resolve error
+const cors = require("cors");
+
+app.use(cors());
+// // socket
+// const socketIO = require("socket.io");
+
+// const server = express()
+//     .use(app)
+//     .listen(8900, () => console.log("Listening Socket on 8900"));
+
+// const io = socketIO(server);
 
 // import libraries
 const mongoose = require("mongoose");

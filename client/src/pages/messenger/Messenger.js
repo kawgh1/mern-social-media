@@ -31,17 +31,63 @@ function Messenger() {
     const scrollRef = useRef();
 
     // socket
-    const [socket, setSocket] = useState(null);
+    // const [socket, setSocket] = useState(null);
+    const socket = useRef(io("ws://localhost:8900"));
+    const [arrivalMessage, setArrivalMessage] = useState(null);
+    const [onlineUsers, setOnlineUsers] = useState([]);
 
-    useEffect(() => {
-        setSocket(io("ws://localhost:8900"));
-    }, []);
+    // replaced with useRef above
+    // useEffect(() => {
+    //     setSocket(io("ws://localhost:8900"));
+    // }, []);
 
+    // useEffect(() => {
+    //     socket?.on("welcome", (message) => {
+    //         console.log(message);
+    //     });
+    // }, [socket]);
+
+    // get user from socket senderId to populate user ProfilePicture in message
+    async function getUserById(userId) {
+        try {
+            const res = await axios("/users?userId=" + userId);
+            console.log(res);
+            return res;
+        } catch (err) {
+            console.log(err, err.message);
+        }
+    }
+
+    // socket
     useEffect(() => {
-        socket?.on("welcome", (message) => {
-            console.log(message);
+        socket.current = io("ws://localhost:8900");
+
+        socket.current.on("getMessage", (data) => {
+            const userId = data.senderId;
+            const user = getUserById(userId);
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now(),
+                profilePicture: PublicFolder + user.profilePicture,
+            });
         });
-    }, [socket]);
+    }, [PublicFolder]);
+
+    useEffect(() => {
+        arrivalMessage &&
+            currentChat?.members.includes(arrivalMessage.sender) &&
+            setMessages((prev) => [...prev, arrivalMessage]);
+    }, [arrivalMessage, currentChat]);
+
+    useEffect(() => {
+        socket.current.emit("addUser", user._id);
+        socket.current.on("getUsers", (users) => {
+            setOnlineUsers(
+                user.following.filter((f) => users.some((u) => u.userId === f))
+            );
+        });
+    }, [user]);
 
     useEffect(() => {
         const getConversations = async () => {
@@ -87,7 +133,21 @@ function Messenger() {
             sender: user._id,
             text: newMessage,
             conversationId: currentChat._id,
+            profilePicture: PublicFolder + user.profilePicture,
         };
+
+        // socket
+        const receiverId = currentChat.members.find(
+            (member) => member !== user._id
+        );
+
+        // socket - this tells socket a new message was sent, so it can display in real time
+        socket.current.emit("sendMessage", {
+            senderId: user._id,
+            receiverId,
+            text: newMessage,
+            profilePicture: PublicFolder + user.profilePicture,
+        });
 
         try {
             const res = await axios.post("/messages", message);
@@ -102,6 +162,7 @@ function Messenger() {
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
     return (
         <>
             {isDesktop ? (
@@ -226,9 +287,14 @@ function Messenger() {
                         <div className="chatOnline">
                             <div className="chatOnlineWrapperWrapper">
                                 <div className="chatOnlineWrapper">
+                                    {/* <ChatOnline />
                                     <ChatOnline />
-                                    <ChatOnline />
-                                    <ChatOnline />
+                                    <ChatOnline /> */}
+                                    <ChatOnline
+                                        onlineUsers={onlineUsers}
+                                        currentId={user._id}
+                                        setCurrentChat={setCurrentChat}
+                                    />
                                 </div>
                             </div>
                         </div>

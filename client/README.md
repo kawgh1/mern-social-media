@@ -88,6 +88,7 @@ Log in using "john@gmail.com" pw='123456'
         </span>
 
 -   User Sign Out functionality
+-   Got User profile images to show within the chatbox 'messenger' chat application
 
 -   ## Connecting to Node Rest API
 
