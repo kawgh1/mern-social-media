@@ -32,7 +32,7 @@ function Messenger() {
 
     // socket
     // const [socket, setSocket] = useState(null);
-    const socket = useRef(io("ws://localhost:8900"));
+    const socket = useRef();
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const [onlineUsers, setOnlineUsers] = useState([]);
 
@@ -47,32 +47,17 @@ function Messenger() {
     //     });
     // }, [socket]);
 
-    // get user from socket senderId to populate user ProfilePicture in message
-    async function getUserById(userId) {
-        try {
-            const res = await axios("/users?userId=" + userId);
-            console.log(res);
-            return res;
-        } catch (err) {
-            console.log(err, err.message);
-        }
-    }
-
     // socket
     useEffect(() => {
         socket.current = io("ws://localhost:8900");
-
         socket.current.on("getMessage", (data) => {
-            const userId = data.senderId;
-            const user = getUserById(userId);
             setArrivalMessage({
                 sender: data.senderId,
                 text: data.text,
                 createdAt: Date.now(),
-                profilePicture: PublicFolder + user.profilePicture,
             });
         });
-    }, [PublicFolder]);
+    }, []);
 
     useEffect(() => {
         arrivalMessage &&
@@ -93,10 +78,9 @@ function Messenger() {
         const getConversations = async () => {
             try {
                 const res = await axios.get("/conversations/" + user._id);
-                // console.log(res);
                 setConversations(res.data);
             } catch (err) {
-                console.log(err, err.message);
+                console.log(err);
             }
         };
         getConversations();
@@ -107,15 +91,14 @@ function Messenger() {
             try {
                 const res = await axios.get("/messages/" + currentChat?._id);
                 setMessages(res.data);
-                // console.log(res);
             } catch (err) {
-                console.log(err, err.message);
+                console.log(err);
             }
         };
         getMessages();
     }, [currentChat]);
 
-    console.log("messages = ", messages);
+    // console.log("messages = ", messages);
 
     const updateMedia = () => {
         setDesktop(window.innerWidth > 700);
@@ -133,10 +116,8 @@ function Messenger() {
             sender: user._id,
             text: newMessage,
             conversationId: currentChat._id,
-            profilePicture: PublicFolder + user.profilePicture,
         };
 
-        // socket
         const receiverId = currentChat.members.find(
             (member) => member !== user._id
         );
@@ -146,7 +127,6 @@ function Messenger() {
             senderId: user._id,
             receiverId,
             text: newMessage,
-            profilePicture: PublicFolder + user.profilePicture,
         });
 
         try {
@@ -154,7 +134,7 @@ function Messenger() {
             setMessages([...messages, res.data]);
             setNewMessage("");
         } catch (err) {
-            console.log(err, err.message);
+            console.log(err);
         }
     };
 
@@ -162,7 +142,6 @@ function Messenger() {
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
-
     return (
         <>
             {isDesktop ? (
