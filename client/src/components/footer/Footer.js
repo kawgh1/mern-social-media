@@ -42,7 +42,7 @@ function Footer() {
                                         style={{
                                             height: "35px",
                                             width: "35px",
-                                            color: "white",
+                                            color: "lime",
                                         }}
                                     />
                                 </Link>
@@ -73,6 +73,7 @@ function Footer() {
                                         style={{
                                             height: "35px",
                                             width: "35px",
+                                            color: "lime",
                                         }}
                                     />
                                 </Link>

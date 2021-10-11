@@ -12,7 +12,6 @@ function Feed({ username }) {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        let isSubscribed = true;
         const fetchPosts = async () => {
             const response = username
                 ? await axios.get("/posts/profile/" + username)
@@ -25,8 +24,6 @@ function Feed({ username }) {
             );
         };
         fetchPosts();
-        // cancel subscription to useEffect
-        return () => (isSubscribed = false);
     }, [username, user._id]);
 
     return (

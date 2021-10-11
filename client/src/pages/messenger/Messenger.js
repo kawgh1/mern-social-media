@@ -10,6 +10,7 @@ import { AuthContext } from "../../context/AuthContext";
 import "./Messenger.css";
 // socket io
 import { io } from "socket.io-client";
+import ChatHeader from "../../components/ChatHeader/ChatHeader";
 
 function Messenger() {
     // public folder for photos
@@ -176,6 +177,7 @@ function Messenger() {
                                             onClick={() =>
                                                 setCurrentChat(conversation)
                                             }
+                                            className="conversationInsideWrapper"
                                         >
                                             <Conversation
                                                 conversation={conversation}
@@ -191,32 +193,40 @@ function Messenger() {
                                 {currentChat ? (
                                     <>
                                         <div className="chatBoxTop">
-                                            {/* <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} /> */}
-                                            {messages.map((message) => (
-                                                <div
-                                                    ref={scrollRef}
-                                                    key={message._id}
-                                                >
-                                                    <Message
-                                                        message={message}
-                                                        own={
-                                                            message.sender ===
-                                                            user._id
-                                                        }
-                                                    />
-                                                </div>
-                                            ))}
+                                            <div className="chatBoxHeaderContainer">
+                                                <ChatHeader
+                                                    conversation={currentChat}
+                                                    currentUser={user}
+                                                />
+                                            </div>
+                                            <div className="chatBoxMessages">
+                                                {/* <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} /> */}
+                                                {messages.map((message) => (
+                                                    <div
+                                                        ref={scrollRef}
+                                                        key={message._id}
+                                                    >
+                                                        <Message
+                                                            message={message}
+                                                            own={
+                                                                message.sender ===
+                                                                user._id
+                                                            }
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                         <div className="chatBoxBottom">
                                             <div className="chatMessageContainer">
@@ -244,27 +254,44 @@ function Messenger() {
                                         </div>
                                     </>
                                 ) : (
-                                    <span
+                                    <div
                                         style={{
-                                            color: "white",
-
-                                            top: "10%",
-                                            textAlign: "center",
-                                            cursor: "default",
-                                            fontSize: "24px",
-                                            position: "absolute",
-                                            marginLeft: "10%",
-                                            textShadow:
-                                                "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px darkblue, 0 0 30px darkblue, 0 0 40px darkblue, 0 0 55px darkblue, 0 0 75px #49ff18",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
                                         }}
                                     >
-                                        Open a conversation to start a chat!
-                                    </span>
+                                        <span
+                                            style={{
+                                                color: "white",
+
+                                                top: "20%",
+                                                textAlign: "center",
+                                                padding: "10px",
+                                                cursor: "default",
+                                                fontSize: "24px",
+                                                position: "absolute",
+                                                textShadow:
+                                                    "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px darkblue, 0 0 30px darkblue, 0 0 40px darkblue, 0 0 55px darkblue, 0 0 75px #49ff18",
+                                            }}
+                                        >
+                                            Open a conversation to start a chat!
+                                        </span>
+                                    </div>
                                 )}
                             </div>
                         </div>
                         <div className="chatOnline">
                             <div className="chatOnlineWrapperWrapper">
+                                <span
+                                    style={{
+                                        color: "white",
+                                        fontSize: "22px",
+                                        padding: "10px",
+                                    }}
+                                >
+                                    Friends Online
+                                </span>
                                 <div className="chatOnlineWrapper">
                                     {/* <ChatOnline />
                                     <ChatOnline />
@@ -301,12 +328,17 @@ function Messenger() {
                                     className="chatMenuInput"
                                 />
                                 <div className="chatConversationWrapper">
+                                    {/* <Conversation />
+                                    <Conversation />
+                                    <Conversation />
+                                    <Conversation /> */}
                                     {conversations.map((conversation) => (
                                         <div
                                             key={conversation._id}
                                             onClick={() =>
                                                 setCurrentChat(conversation)
                                             }
+                                            className="conversationInsideWrapper"
                                         >
                                             <Conversation
                                                 conversation={conversation}
@@ -322,32 +354,40 @@ function Messenger() {
                                 {currentChat ? (
                                     <>
                                         <div className="chatBoxTop">
-                                            {/* <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} />
-                                    <Message />
-                                    <Message own={true} /> */}
-                                            {messages.map((message) => (
-                                                <div
-                                                    ref={scrollRef}
-                                                    key={message._id}
-                                                >
-                                                    <Message
-                                                        message={message}
-                                                        own={
-                                                            message.sender ===
-                                                            user._id
-                                                        }
-                                                    />
-                                                </div>
-                                            ))}
+                                            <div className="chatBoxHeaderContainer">
+                                                <ChatHeader
+                                                    conversation={currentChat}
+                                                    currentUser={user}
+                                                />
+                                            </div>
+                                            <div className="chatBoxMessages">
+                                                {/* <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} />
+                                                <Message />
+                                                <Message own={true} /> */}
+                                                {messages.map((message) => (
+                                                    <div
+                                                        ref={scrollRef}
+                                                        key={message._id}
+                                                    >
+                                                        <Message
+                                                            message={message}
+                                                            own={
+                                                                message.sender ===
+                                                                user._id
+                                                            }
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                         <div className="chatBoxBottom">
                                             <div className="chatMessageContainer">
@@ -375,22 +415,30 @@ function Messenger() {
                                         </div>
                                     </>
                                 ) : (
-                                    <span
+                                    <div
                                         style={{
-                                            color: "white",
-                                            position: "absolute",
-                                            top: "10%",
-                                            left: "50px",
-                                            right: "50px",
-                                            cursor: "default",
-                                            fontSize: "24px",
-
-                                            textShadow:
-                                                "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px darkblue, 0 0 30px darkblue, 0 0 40px darkblue, 0 0 55px darkblue, 0 0 75px #49ff18",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
                                         }}
                                     >
-                                        Open a conversation to start a chat!
-                                    </span>
+                                        <span
+                                            style={{
+                                                color: "white",
+
+                                                top: "20%",
+                                                textAlign: "center",
+                                                cursor: "default",
+                                                fontSize: "24px",
+                                                position: "absolute",
+                                                padding: "10px",
+                                                textShadow:
+                                                    "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px darkblue, 0 0 30px darkblue, 0 0 40px darkblue, 0 0 55px darkblue, 0 0 75px #49ff18",
+                                            }}
+                                        >
+                                            Open a conversation to start a chat!
+                                        </span>
+                                    </div>
                                 )}
                             </div>
                         </div>
