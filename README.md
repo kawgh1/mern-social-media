@@ -8,6 +8,7 @@
 ## Features
 
 -   Users can login with backend authentication through MongoDB
+-   Users can post and upload photos
 -   Users can view all their friend's posts on the main feed, and their own personal posts on their profile.
 -   If you visit someone's profile, only their own posts are displayed.
 -   Follow and unfollow friends
