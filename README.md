@@ -1,4 +1,19 @@
 -   # MERN Stack Social Media App w/ Socket.io
+-   This project is based on a MERN course by Lama Dev. I added a lot of custom styling, layout and functionality including the entire responsive mobile view and the Heroku deployment.
+
+## View the production deploy repo [here](https://github.com/kawgh1/mern-social-deploy)
+
+## View the live site [here](https://mern-social-media-react.herokuapp.com)
+
+-   There are still many visual/functional improvements that could be made, but I mostly wanted to get a working Social Media type clone using the MERN stack up and running.
+-   I also wanted to have more fun with the project and opted for some more creative styling than normal. Most social media apps are a bit flat these days.
+-   I like some color and texture.
+
+### After Action Review
+
+-   This was a great project. I learned a lot. I learned about implementing Socket IO and ran a MERN stack with MongoDB and Node API.
+-
+
 -   Each folder has its own README with more info for each
 
     -   ## api

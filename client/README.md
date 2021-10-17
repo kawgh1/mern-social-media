@@ -97,6 +97,8 @@ Log in using "john@gmail.com" pw='123456'
         "proxy": "http://localhost:8800/api"
 
 -   ## Extras
+-   Loaders
+-   npm install @agney/react-loading
 
 -   Custom user posts only on User Profile page using javascript filter method, instead of targeting the Feed component
 
